@@ -1,0 +1,992 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link href="../../css/public.css" rel="stylesheet"/>
+		<link href="../../css/index.css" rel="stylesheet"/>
+	</head>
+	<style>
+		/*.mui-bar-nav~.mui-content{padding-top: 0;}*/
+		.add_repay{
+			width:4rem;height:4rem;position:absolute;right:7.2%;top:1.56rem;background:url(../../images/xzhk@3x.png) 0 0 no-repeat;background-size:100% 100%;
+		}
+		.repaying{
+			width:4rem;height:4rem;position:absolute;right:7.2%;top:1.56rem;background:url(../../images/zzhk@3x.png) 0 0 no-repeat;background-size:100% 100%;
+		}
+        .mui-table-view-cell:after,.mui-table-view:after,.mui-table-view:before{-webkit-transform:scaleY(0.5);
+            transform:scaleY(0.5);}
+        .mui-slider-indicator .mui-active.mui-indicator{
+        	background: #10afff;
+        }  
+        .mui-slider-indicator .mui-indicator{box-shadow: none;background: #FFFFFF}
+        .home_type-1,.home_type-2,.home_type-3{
+        	/*padding: 0 15px;*/
+	   		background-color: #fff;
+	   		padding-bottom: 10px;
+	    } 
+	    .home_type-1 img,.home_type-2 img,.home_type-3 img{width: 100%;} 
+	    .inte-repay{background: url(../../images/share-money@3x.png)no-repeat;
+	    	background-size: 28px;background-position-y: 0px;	    	
+		    padding: 4px 0;
+    		padding-left: 35px;
+	    }
+	    .kj-sk{background: url(../../images/operation-img@3x.png)no-repeat;
+	    	background-size: 28px;background-position-y: 0px;	    	
+		    padding: 4px 0;
+    		padding-left: 35px;
+	    }
+	    /*.credit-card{background: url(../../images/credit-card@2x.png)no-repeat;
+	    	background-size: 28px;background-position-y: 10px;margin-top: 11px;
+	    }*/
+	    .head-type{color: #3e3e3e;
+    		font-size: 18px;/*background: url(../../images/chioce@2x.png)no-repeat;background-size: 24px;*/text-align: center;
+    		padding: 14px 0;background-position-y: 11px;margin-top: 11px;
+    	}
+    	h5 {
+		    text-align: center;
+		    font-size: 12px;
+		    color: #a9a9a9;
+		    margin-top: 15px;
+    		margin-bottom: 25px;
+		}
+		.icon_list_1{
+			background:url(../../images/home-type-1@2x.png)no-repeat;
+			background-size:100%;	
+			height: 40px;
+    		width: 40px;
+		}
+		.icon_list_2{
+			background:url(../../images/home-type-2@2x.png)no-repeat;
+			background-size:100%;	
+			height: 40px;
+    		width: 39px;
+		}
+		.icon_list_3{
+			background:url(../../images/home-type-3@2x.png)no-repeat;
+			background-size:100%;	
+			height: 40px;
+    		width: 40px;
+		}
+		.icon_list_4{
+			background:url(../../images/home-type-4@2x.png)no-repeat;
+			background-size:100%;background-position-y: center;	
+			height: 40px;
+    		width: 40px;
+		}
+		.icon_list_5{
+			background:url(../../images/home-type-5@2x.png)no-repeat;
+			background-size:100%;	
+			height: 40px;
+    		width: 34px;
+		}
+		.icon_list_6{
+			background:url(../../images/home-type-6@2x.png)no-repeat;
+			background-size:100%;	
+			height: 40px;
+    		width: 40px;
+		}
+		.mui-grid-view.mui-grid-9,.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+			/*border: none;*/padding: 0;}
+		.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body{padding-bottom: 15px;}	
+		.mui-col-sm-3{width: 33.33333333%;}
+		.home_logo{
+			text-align: center;
+		    background: #fff;
+		    margin-top: 13px;padding: 12px 0;
+		}
+		.home_logo img{height: 22px;}
+	</style>
+	<body>
+		<header id="header" class="mui-bar mui-bar-transparent" style="background-color: rgba(247, 247, 247, 0);">
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<h1 class="mui-title"><!--导航栏--></h1>
+			<span id="mess_center" class="message"><span class="mui-mesg"></span></span>
+		</header>
+		<!--<header id="header" class="mui-bar mui-bar-transparent" style="box-shadow: none;padding-top: 18px;">
+			<h1 class="mui-title">喜刷刷</h1>	
+			<span id="mess_center" class="message"><span class="mui-mesg"></span></span>
+		</header>-->
+		<div class="mui-content" style="">
+			<div class="mui-slider">
+				<div id="slider_find" class="mui-slider-group mui-slider-loop">
+				  	<!--<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img id="find_start" src="../../images/banner-4.png">
+						</a>
+					</div>
+				    <div class="mui-slider-item mui-active">
+				      	<a href="#">
+							<img id="find_one" src="../../images/banner-1.png">
+						</a>
+				    </div>
+				    <div class="mui-slider-item">
+				      	<a href="#">
+							<img id="find_two" src="../../images/banner-2.png">
+						</a>
+				    </div>
+				    <div class="mui-slider-item">
+				      	<a href="#">
+				      		<img id="find_three" src="../../images/banner-3.png">
+						</a>
+				    </div>
+				    <div class="mui-slider-item">
+				      	<a href="#">
+							<img id="find_four" src="../../images/banner-4.png">
+						</a>
+				    </div>
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img id="find_end" src="../../images/banner-1.png">
+						</a>
+					</div>-->
+				</div> 
+				<div id="slider_bot" class="mui-slider-indicator">
+					<!--<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>-->
+				</div>
+			</div>
+			<div class="home_logo">
+				<img src="../../images/home-logo@3x.png">
+			</div>
+			<ul id="home_list" class="mui-table-view mui-grid-view mui-grid-9" style="background: #FFFFFF;">
+	            <li title="1" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="background: #FFFFFF;"><a href="#">
+	                    <span class="mui-icon icon_list_1"></span>
+	                    <div class="mui-media-body">收款</div>
+	            </a></li>
+	            <li title="2" style="background: #FFFFFF;" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+	                    <span class="mui-icon icon_list_2"></span>
+	                    <div class="mui-media-body">智能还</div>
+	            </a></li>	
+	            <li title="3" style="background: #FFFFFF;" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+	                    <span class="mui-icon icon_list_3"></span>
+	                    <div class="mui-media-body">签到</div>
+	            </a></li>	
+	            <li title="4" style="background: #FFFFFF;" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+	                    <span class="mui-icon icon_list_4"></span>
+	                    <div class="mui-media-body">信用卡申请</div>
+	            </a></li>
+	            <li title="5" style="background: #FFFFFF;" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+	                    <span class="mui-icon icon_list_5"></span>
+	                    <div class="mui-media-body">安全保障</div>
+	            </a></li>	
+	            <li title="6" style="background: #FFFFFF;" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+	                    <span class="mui-icon icon_list_6"></span>
+	                    <div class="mui-media-body">专属客服</div>
+	            </a></li>
+	        </ul>
+			<div class="home_type-1">				
+				<div class="head-type">						
+					<span class="inte-repay">分享赚钱</span>
+				</div>
+				<img id="home-1" src="../../images/home-1@2x.png" />				
+			</div>	
+			<div class="home_type-2">				
+				<div class="head-type">						
+					<span class="kj-sk">操作指南</span>
+				</div>
+				<img id="home-2" src="../../images/home-2@2x.png" />				
+			</div>
+			<!--<div class="home_type-3">
+				<div class="credit-card">
+					<div class="head-type">						
+						信用卡申请
+					</div>
+					<img id="home-3" src="../../images/home-3@2x.png" />
+				</div>
+			</div>-->
+			<h5>
+				<span style="margin-right: 14px;">————</span>
+				<label>我们是有底线的</label>
+				<span style="margin-left: 13px;">————</span>
+			</h5>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/immersed.js" ></script>
+		<!--<script type="text/javascript" src="../../js/jlyGlobal.js" ></script>
+		<script type="text/javascript" src="../../js/jlyUser.js" ></script>
+		<script type="text/javascript" src="../../js/tab-webview-main.js" ></script>-->			
+		<script type="text/javascript" src="../../js/jquery-1.8.0.min.js" ></script>
+		<script type="text/javascript" src="../../js/util.js" ></script>
+		<script type="text/javascript">
+			var aniShow = {};
+			mui.plusReady(function(){
+				mui.init({  
+					hardwareAccelerated:true, //开启硬件加速					
+				});
+				if(mui.os.ios){
+					// 创建加载内容窗口
+					var topoffset='45px';
+					if(plus.navigator.isImmersedStatusbar()){// 兼容immersed状态栏模式
+						topoffset=(Math.round(plus.navigator.getStatusbarHeight())+15)+'px';
+					} 
+//					document.getElementById('header').style.height=(immersed+44)+'px';					
+//					document.querySelector('.mui-content').style.paddingTop=(immersed+44)+'px';				   	
+				}else if(mui.os.android){
+//					document.getElementById('header').style.height=(immersed+44)+'px';										
+				}
+				if(immersed>25){
+					document.querySelector('.message').style.marginTop=(20)+'px';
+				}else{
+					document.querySelector('.message').style.marginTop=(10)+'px';
+				}
+//				plus.storage.clear()
+				document.querySelector('.mui-content').style.marginBottom=(immersed+44)+'px';
+//				document.querySelector('.mui-content').style.paddingTop=(immersed+44)+'px';
+//				$('.mui-content').height(window.screen.height+immersed+44);
+
+				var self = plus.webview.currentWebview(),
+					nviews = self.getSubNViews(),
+					subpages = util.options.subpages,
+					leftPos = Math.ceil((window.innerWidth - 60) / 2); // 设置凸起大图标为水平居中
+
+				/**
+				 * 简单封装了绘制原生view控件方法 drawNative()
+				 * 绘制内容支持font（文本，字体图标）,图片img , 矩形区域rect
+				 *
+				 */
+				function drawNative(id, styles, tags) {
+				    var view = new plus.nativeObj.View(id, styles, tags);
+				    return view
+				}
+				
+				/** 
+				 * drawNativeIcon 绘制带边框的半圆，
+				 * 实现原理：
+				 *   id为bg的tag 创建带边框的圆
+				 *   id为bg2的tag 创建白色矩形遮住圆下半部分，只显示凸起带边框部分
+				 *   id为iconBg的红色背景图
+				 *   id为icon的字体图标
+				 *   注意创建先后顺序，创建越晚的层级越高
+				 */
+				var drawNativeIcon = util.drawNative('tabIcon6', {
+				    bottom: '5px',
+				    left: leftPos + 'px',
+				    width: '60px',
+				    height: '60px'
+				}, [{
+				    tag: 'rect',
+				    id: 'bg',
+				    position: {
+				        top: '1px',
+				        left: '0px',
+				        width: '100%',
+				        height: '100%'
+				    },
+				    rectStyles: {
+				        color: '#fff',
+				        radius: '50%',
+				        borderColor: '#ccc',
+				        borderWidth: '0.5px'
+				    }
+				}, {
+				    tag: 'rect',
+				    id: 'bg2',
+				    position: {
+				        bottom: '-0.5px',
+				        left: '0px',
+				        width: '100%',
+				        height: '45px'
+				    },
+				    rectStyles: {
+				        color: '#fff'
+				    }
+				}, {
+				    tag: 'rect',
+				    id: 'iconBg',
+				    position: {
+				        top: '5px',
+				        left: '5px',
+				        width: '50px',
+				        height: '50px'
+				    },
+				    rectStyles: {
+				        color: '#FF5A00',
+				        radius: '50%'
+				    }
+				}, {
+				    tag: 'font',
+				    id: 'icon',
+				    text: '推广', //此为字体图标Unicode码'\e600'转换为'\ue600'
+				    position: {
+				        top: '0px',
+				        left: '5px',
+				        width: '50px',
+				        height: '100%'
+				    },
+				    textStyles: {
+				        fontSrc: '_www/fonts/iconfont.ttf',
+				        align: 'center',
+				        color: '#fff',
+				        size: '18px'
+				    }
+				}]);
+				// 添加到当前父webview中，------此步骤很重要
+				self.append(drawNativeIcon);
+								
+
+				//自定义监听图标点击事件
+				drawNativeIcon.addEventListener('click', function(e) {
+					var newWV=plus.webview.getWebviewById('../extension/extension.html');
+					newWV.show('pop-in', 350);
+					clickEvent(e)
+//					// 重绘字体颜色
+					drawNativeIcon.drawText('推广', {}, {
+						align: 'center',
+						color: '#fff',
+						size: '18px'
+					}, 'icon');
+				});
+				
+				var ino = plus.storage.getItem('launchFlag');
+				//判断是否第一次安装打开
+			    if(ino == null){
+			        mui.openWindow({
+						url:'banner.html',
+						id:'banner',
+						show: {
+							aniShow: 'pop-in',
+							duration:'350',
+						},
+						//屏蔽转场动画的等待圈圈
+						waiting:{
+							autoShow:true,
+						}
+					});
+			    }else{
+			    	var activePage = plus.webview.currentWebview();
+			    }
+				//创建子webview窗口 并初始化
+				util.initSubpage();
+				
+
+				//给每个view 添加监听点击切换
+				for(var i = 0; i < 4; i++) {
+					nviews[i].addEventListener('click', clickEvent, false);
+				}
+
+				// 自定义 tab 点击事件
+				function clickEvent(e) {
+					var currId = e.target.id,
+						currIndex = parseInt(currId.substr(currId.length - 1, 1) - 1),
+						currView = self.getStyle().subNViews[currIndex];
+						
+					// 匹配对应tab窗口	
+					if(currIndex > 0){
+						targetPage = plus.webview.getWebviewById(subpages[currIndex-1]);						
+					}else {
+						targetPage = plus.webview.currentWebview();
+					}
+
+					if(targetPage == activePage) {						
+						return;
+					}
+
+					if(currIndex !== 3) {
+						drawNativeIcon.drawText('推广', {}, {
+//						fontSrc: '_www/fonts/iconfont.ttf',
+						align: 'center',
+						color: '#fff',
+						size: '18px'
+					}, 'icon');
+					}
+					//底部选项卡切换
+					util.toggleNview(currView, currIndex);
+					// 子页面切换
+					util.changeSubpage(targetPage, activePage);
+					//更改当前活跃的页面
+					activePage = targetPage;
+				}
+
+
+				var uid=plus.storage.getItem('uid');
+				var token=plus.storage.getItem('token');
+				var Insurance_url;
+					
+				mui.ajax('http://www.zhxft.com/app/account/index',{
+					async:false,
+					data:{
+											
+					},
+					dataType:'JSON',//服务器返回json格式数据
+					type:'POST',//HTTP请求类型
+					success:function(data){
+						console.log(data);
+						var arrParse = JSON.parse(data);
+						Insurance_url=arrParse.security_link;
+						var banner_2=document.getElementById('slider_find');	
+						var banner_2_bot=document.getElementById('slider_bot')
+						banner_2.innerHTML='';
+						var banner_2_statr=parseInt(arrParse.banner.length)-1;
+						banner_2.innerHTML+='<div class="mui-slider-item mui-slider-item-duplicate">'
+							+'<a href="#">'
+								+'<img id="banner_start" src="'+arrParse.banner[banner_2_statr].img+'">'
+							+'</a>'
+						+'</div>';
+						for (var i=0;i<arrParse.banner.length;i++) {
+							if(i==0){		
+								banner_2.innerHTML+='<div class="mui-slider-item mui-active">'
+									+'<a href="#">'
+										+'<img src="'+arrParse.banner[i].img+'">'
+									+'</a>'
+								+'</div>';
+								banner_2_bot.innerHTML+='<div class="mui-indicator mui-active"></div>';
+							}else{
+								banner_2.innerHTML+='<div class="mui-slider-item">'
+									+'<a href="#">'
+										+'<img src="'+arrParse.banner[i].img+'">'
+									+'</a>'
+								+'</div>';
+								banner_2_bot.innerHTML+='<div class="mui-indicator"></div>';
+							}				
+						}
+						banner_2.innerHTML+='<div class="mui-slider-item mui-slider-item-duplicate">'
+							+'<a href="#">'
+								+'<img id="banner_end" src="'+arrParse.banner[0].img+'">'
+							+'</a>'
+						+'</div>';	
+						document.getElementById('home-1').src=arrParse.pic[0].src;
+						document.getElementById('home-2').src=arrParse.pic[1].src;
+//						document.getElementById('home-3').src=arrParse.pic[2].src;
+					},
+					error:function(xhr,error,errorThrown){
+						console.log(error);
+					}
+				});	
+				var kf_phone;
+				mui.ajax('http://www.zhxft.com/app/account/superior_agent',{
+					async:false,
+					data:{
+						uid:uid,
+						token:token
+					},
+					dataType:'JSON',//服务器返回json格式数据
+					type:'POST',//HTTP请求类型
+					success:function(data){
+						console.log(data);
+						var arrParse = JSON.parse(data);
+						if(arrParse.state==1){
+							kf_phone=arrParse.phoneNum;
+						}else if(arrParse.state==0 && plus.storage.getItem('launchFlag')!=null){
+							plus.storage.clear();	
+							plus.storage.setItem("launchFlag", "林允");
+							mui.confirm('你当前并未登录(或账号在其他手机登录以致此手机账号被退出)，是否前往登录！','提示',['是','否'],function(e){
+								if(e.index==0){
+									mui.openWindow({
+										url: 'login.html',
+										id: 'login',
+										show: {
+											autoShow:false,
+											aniShow: 'pop-in',
+											duration:'350',
+										}//额外扩展参数
+										,createNew:true,extras:{type:1},//是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+										styles:{softinputMode:'adjustResize'},
+										waiting: {
+											autoShow: true
+										}
+									});
+								}
+							},'div')
+							return;
+						}
+					},
+					error:function(xhr,error,errorThrown){
+						console.log(error);
+					}
+				});
+				
+				mui.ajax('http://www.zhxft.com/app/index1/bomb_news',{
+					async:false,
+					data:{
+						
+					},
+					dataType:'JSON',//服务器返回json格式数据
+					type:'POST',//HTTP请求类型
+					success:function(data){
+						console.log(data);
+						var arrParse = JSON.parse(data);
+						mui.alert(arrParse.datas.content,arrParse.datas.title,'','','div');
+					},
+					error:function(xhr,error,errorThrown){
+						console.log(error);
+					}
+				});
+				
+				var version=null;
+				plus.runtime.getProperty(plus.runtime.appid, function(wgtinfo) {
+					version = wgtinfo.version;	
+					localStorage.setItem('ver',wgtinfo.version)
+				});
+												
+				mui.ajax('http://www.zhxft.com/mobile/index/shengji',{
+					async:false,
+					data:{
+						
+					},
+					dataType:'JSON',//服务器返回json格式数据
+					type:'POST',//HTTP请求类型
+					success:function(data){
+						console.log(data);
+						if(version==null){
+							version=localStorage.getItem('ver');
+						}						
+//						var arrParse = JSON.parse(data);	
+						if(compareVersion(version, data)){
+							mui.confirm('信付通APP已有最新版本，是否更新版本！','温馨提示',['是','否'],function(e){
+								if(e.index==0){
+									checkUpdate();
+								}
+							},'div')							
+						}
+					},
+					error:function(xhr,error,errorThrown){
+						console.log(error);
+					}
+				});
+				
+				window.addEventListener('news_msg',function(event){
+					document.querySelector('.mui-mesg').style.display='none';
+				});
+				window.addEventListener('news_msg_yes',function(event){
+					document.querySelector('.mui-mesg').style.display='block';
+				});
+				
+				setTimeout(function(){
+					mui(".mui-slider").slider({
+						interval: 2000
+					});
+				},500);
+				
+				if (uid!=null && token!=null) {
+
+				} else{
+					
+				}
+				window.addEventListener('customEvent',function(event){
+					uid=plus.storage.getItem('uid');
+					token=plus.storage.getItem('token');
+					mui.ajax('http://www.zhxft.com/app/account/superior_agent',{
+						async:false,
+						data:{
+							uid:uid,
+							token:token
+						},
+						dataType:'JSON',//服务器返回json格式数据
+						type:'POST',//HTTP请求类型
+						success:function(data){
+							console.log(data);
+							var arrParse = JSON.parse(data);
+							if(arrParse.state==1){
+								kf_phone=arrParse.phoneNum;
+							}else if(arrParse.state==0 && plus.storage.getItem('launchFlag')!=null){
+//								plus.storage.clear();	
+//								plus.storage.setItem("launchFlag", "林允");
+//								mui.confirm('你当前并未登录(或账号在其他手机登录以致此手机账号被退出)，是否前往登录！','提示',['是','否'],function(e){
+//									if(e.index==0){
+//										mui.openWindow({
+//											url: 'login.html',
+//											id: 'login',
+//											show: {
+//												autoShow:false,
+//												aniShow: 'pop-in',
+//												duration:'350',
+//											}//额外扩展参数
+//											,createNew:true,extras:{type:1},//是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+//											styles:{softinputMode:'adjustResize'},
+//											waiting: {
+//												autoShow: true
+//											}
+//										});
+//									}
+//								},'div')
+//								return;
+							}						
+						},
+						error:function(xhr,error,errorThrown){
+							console.log(error);
+						}
+					});
+				});	
+	
+				//信息中心
+				document.getElementById('mess_center').addEventListener('tap',function(){
+					if (plus.storage.getItem('uid')!=null && plus.storage.getItem('token')!=null) {
+						mui.openWindow({
+							url: '../user/news.html',
+							id: 'news',
+							show: {
+								autoShow:false,
+								aniShow: 'pop-in',
+								duration:'350',
+							},//额外扩展参数
+							createNew:true,//是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+//							extras:{type:1},
+							styles:{
+//								bounce: 'vertical',bounceBackground:'#fc1',
+							},	
+							waiting: {
+								autoShow: true
+							}
+						});
+					}else{
+						plus.storage.setItem('btype','1')
+						mui.confirm('你当前并未登录，是否前往登录！','提示',['是','否'],function(e){
+							if(e.index==0){
+								mui.openWindow({
+									url: '../index/login.html',
+									id: 'login',
+									show: {
+										autoShow:false,
+										aniShow: 'pop-in',
+										duration:'350',
+									}//额外扩展参数
+									,createNew:true,extras:{type:1},//是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+									styles:{softinputMode:'adjustResize'},
+									waiting: {
+										autoShow: true
+									}
+								});
+							}
+						},'div')
+					}
+				})
+				
+				document.querySelector('.home_type-1').addEventListener('tap',function(){
+					if (uid!=null && token!=null) {
+						mui.openWindow({
+							url: 'share_money.html',
+							id: 'share_money',
+							show: {
+								autoShow:false,
+								aniShow: 'pop-in',
+								duration:'350',
+							},
+	//						extras:{card_id:id},
+							styles:{
+	//								bounce: 'vertical',bounceBackground:'#fc1',
+							},
+							waiting: {
+								autoShow: true
+							}
+						});
+					}else{
+						plus.storage.setItem('btype','1')
+						mui.confirm('你当前并未登录，是否前往登录！','提示',['是','否'],function(e){
+							if(e.index==0){
+								mui.openWindow({
+									url: '../index/login.html',
+									id: 'login',
+									show: {
+										autoShow:false,
+										aniShow: 'pop-in',
+										duration:'350',
+									}//额外扩展参数
+									,createNew:true,extras:{type:1},//是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+									styles:{softinputMode:'adjustResize'},
+									waiting: {
+										autoShow: true
+									}
+								});
+							}
+						},'div')
+					}
+				})
+				document.querySelector('.home_type-2').addEventListener('tap',function(){
+					mui.openWindow({
+						url: '../user/novice_guide.html',
+						id: 'novice_guide',
+						show: {
+							autoShow:false,
+							aniShow: 'pop-in',
+							duration:'350',
+						},
+//						extras:{card_id:id},
+						styles:{
+						},
+						waiting: {
+							autoShow: true
+						}
+					});					
+				})
+				
+				mui('#home_list').on('tap','li',function(e){
+					var i=$(this).attr('title');
+					if(uid==null){
+						plus.storage.setItem('btype','1')
+						mui.confirm('你当前并未登录，是否前往登录！','提示',['是','否'],function(e){
+							if(e.index==0){
+								mui.openWindow({
+									url: '../index/login.html',
+									id: 'login',
+									show: {
+										autoShow:false,
+										aniShow: 'pop-in',
+										duration:'350',
+									}//额外扩展参数
+									,createNew:true,extras:{type:1},//是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+									styles:{softinputMode:'adjustResize'},
+									waiting: {
+										autoShow: true
+									}
+								});
+							}
+						},'div')
+						return;
+					}
+					if(i==1){
+						mui.openWindow({
+							url: 'Receivables.html',
+							id: 'Receivables',
+							show: {
+								autoShow:false,
+								aniShow: 'pop-in',
+								duration:'350',
+							},
+//							extras:{card_id:id},repay.html
+							styles:{
+							},
+							waiting: {
+								autoShow: true
+							}
+						});
+					}else if(i==2){
+						mui.openWindow({
+							url: 'repay.html',
+							id: 'repay',
+							show: {
+								autoShow:false,
+								aniShow: 'pop-in',
+								duration:'350',
+							},
+//							extras:{card_id:id},
+							styles:{
+							},
+							waiting: {
+								autoShow: true
+							}
+						});
+					}else if(i==3){
+						mui.openWindow({
+							url: '../extension/code_img.html',
+							id: 'code_img',
+							show: {
+								autoShow:false,
+								aniShow: 'pop-in',
+								duration:'350',
+							},
+//							extras:{card_id:id},
+							styles:{
+							},
+							waiting: {
+								autoShow: true
+							}
+						});
+					}else if(i==4){
+						mui.openWindow({
+							url: 'credit_card.html',
+							id: 'credit_card',
+							show: {
+								autoShow:false,
+								aniShow: 'pop-in',
+								duration:'350',
+							},
+//							extras:{card_id:id},
+							styles:{
+							},
+							waiting: {
+								autoShow: true
+							}
+						});
+					}else if(i==5){
+						mui.openWindow({
+							url: 'Insurance.html',
+							id: 'Insurance',
+							show: {
+								autoShow:false,
+								aniShow: 'pop-in',
+								duration:'350',
+							},
+//							createNew:true,//是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+							extras:{url:Insurance_url},							
+							waiting: {
+								autoShow: true
+							}
+						});
+//						plus.runtime.openURL(Insurance_url);
+					}else if(i==6){
+						if(kf_phone==undefined){
+							mui.alert('你当前尚未拥有专属客服','提示','','','div');
+							return;
+						}
+						//拨打客服电话						  	 
+				        var btnArray = ['拨打', '取消']; 
+//				        var Phone = "0371-6331-1799"; 
+				        mui.confirm('是否拨打 ' + kf_phone + ' ？', '提示', btnArray, function(e) { 
+				            if (e.index == 0) { 
+				                plus.device.dial(kf_phone, false); 
+				            }  
+				        },'div'); 
+					}				
+				})
+				
+				var wgtVer = null;
+			    // 检测更新,返回最新版本号
+			    //正式上线时请更改当前版本
+			    var checkUrl = "http://www.zhxft.com/mobile/index/shengji";
+			    // 下载wgt文件
+			    var wgtUrl = "http://www.zhxft.com/update/H5FF15829.wgt";
+			
+			    function checkUpdate(callback) {
+			        // 获取本地应用资源版本号
+			        plus.runtime.getProperty(plus.runtime.appid, function(inf) {
+			            wgtVer = inf.version;
+			            console.log("当前应用版本：" + wgtVer);
+			        });
+			        //      plus.nativeUI.showWaiting("检测更新...");			        
+			        
+			        var xhr = new XMLHttpRequest();
+			        xhr.onreadystatechange = function() {
+			            switch (xhr.readyState) {
+			                case 4:
+			                    //                  plus.nativeUI.closeWaiting();
+			                    if (xhr.status == 200) {
+			                        console.log("检测更新成功：" + xhr.responseText);
+			                        var newVer = xhr.responseText;
+			                        if (compareVersion(wgtVer, newVer)) {
+			                            if (!callback){
+			                            	downWgt(true); // 下载升级包
+			                            }else{
+			                            	callback(true);
+			                            }			                                			                                 
+			                        } else {
+			                            //                          plus.nativeUI.alert("无新版本可更新！");
+			                            if (callback) callback(false);
+			                        }
+			                    } else {
+			                        console.log("检测更新失败！");
+			                        //                      plus.nativeUI.alert("检测更新失败！");
+			                    }
+			                    break;
+			                default:
+			                    break;
+			            }
+			        }
+			        xhr.open('GET', checkUrl);
+			        xhr.send();
+			    }
+			
+			    function downWgt(key) {
+		            var w;
+		            if (key) {
+		                w = plus.nativeUI.showWaiting("　　 开始下载...　　");
+		            }
+		            var options = {
+		                filename: "_doc/update/"
+		            };
+		            var dtask = plus.downloader.createDownload(wgtUrl, options, function(d, status) {
+		                if (status == 200) {
+		                    console.log("下载wgt成功：" + d.filename);
+		                    setTimeout(installWgt(d.filename, key), 2000); // 安装wgt包
+		                } else {
+		                    console.log("下载wgt失败！");
+		                    if (key) {
+		                        plus.nativeUI.alert("下载更新资源失败！");
+		                    }
+		                }
+		            });
+		            if (key) {
+		                dtask.addEventListener("statechanged", function(task, status) {
+		                    switch (task.state) {
+		                        case 1: // 开始
+		                            w.setTitle("　　 开始下载...　　 ");
+		                            break;
+		                        case 2: // 已连接到服务器
+		                            w.setTitle("开始下载...　　 ");
+		                            break;
+		                        case 3:
+		                            var a = task.downloadedSize / task.totalSize * 100;
+		                            console.log(a)
+		                            w.setTitle(" 已下载" + parseInt(a) + "%　　 ");
+		                            break;
+		                        case 4: // 下载完成
+		                            w.close();
+		                            break;
+		                    }
+		                });
+		            }
+		            dtask.start();
+			
+			    }
+			
+			        // 更新应用资源
+			
+			    function installWgt(path, key) {
+		            if (key) {
+		                plus.nativeUI.showWaiting("在线升级，安装资源文件...");
+		            }
+		            plus.runtime.install(path, {}, function() {
+		                if (key) {
+		                    plus.nativeUI.closeWaiting();
+		                    //自动在线升级不重启
+		                    plus.nativeUI.alert("应用资源更新完成！", function() {
+		                    plus.runtime.restart();
+		                });
+		                }
+		                console.log("安装wgt文件成功！");
+		
+		            }, function(e) {			
+		                console.log("安装wgt文件失败[" + e.code + "]：" + e.message);
+		                if (key) {
+		                    plus.nativeUI.closeWaiting();
+		                    plus.nativeUI.alert("在线升级，安装资源文件失败");
+		                }
+		            });
+		        }
+		        /**
+		         * 比较版本大小，如果新版本nv大于旧版本ov则返回true，否则返回false
+		         * @param {String} ov
+		         * @param {String} nv
+		         * @return {Boolean}
+		         */
+			
+			    function compareVersion(ov, nv) {
+			        if (!ov || !nv || ov == "" || nv == "") {			        	
+			            return false;
+			        }
+			        var b = false,
+			            ova = ov.split(".", 4),
+			            nva = nv.split(".", 4);
+			        for (var i = 0; i < ova.length && i < nva.length; i++) {
+			            var so = ova[i],
+			                no = parseInt(so),
+			                sn = nva[i],
+			                nn = parseInt(sn);
+			            if (nn > no || sn.length > so.length) {
+			                return true;
+			            } else if (nn < no) {
+			                return false;
+			            }
+			        }
+			        if (nva.length > ova.length && 0 == nv.indexOf(ov)) {
+			            return true;
+			        }
+			    }
+				
+				//关闭页面跳转动画
+				plus.nativeUI.closeWaiting();
+				//显示当前页面
+				var self = plus.webview.currentWebview();
+				self.show('pop-in');
+			});
+			
+		</script>
+	</body>
+
+</html>
